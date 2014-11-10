@@ -30,66 +30,82 @@
     </head>
 
     <body>
-<div class="navbar navbar-masthead navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    --> <a class="navbar-brand" href="#">潮見表自動生成アプリ</a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="http://kiddikn.php.xdomain.jp/kiddikn/">About</a></li>
-                    </ul>
-                </div><!--/.nav-collapse -->
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">潮見表自動生成アプリ</a>
+            </div>
+            <div class="navbar-collapse collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="http://kiddikn.php.xdomain.jp/kiddikn/" target="_blank">About</a></li>
+                </ul>
             </div>
         </div>
+
 
         <div class="container">
 
             <div class="starter-template">
-                <h1>潮見表を作成</h1>
-                <p class="lead"><small>Step1</small>取得する期間を選択</p>
-                <hr />
-                <form class="form-horizontal" role="form" id="inputForm" action="./php/Tide.php" method="POST" onsubmit="return chk1(this)">
-                    <label for="StartMonth" class="col-sm-3 control-label">開始月を選択</label>
-                    <div class="col-sm-3">
-                        <input name="StartMonth"  id="StartMonth" type = "text" >
-                    </div>
-                    <label for="EndMonth" class="col-lg-3 control-label">何ヶ月表示するか選択</label>
-                    <div class="col-lg-3">
-                        <select name="EndMonth" id="EndMonth">
-                            <option>1</option>
-                            <!--
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                            -->
-                        </select>
-                    </div>
+                <div class="jumbotron">
+                    <h1>潮見表を作成</h1>
+                    <p>指定した期間の潮見表をエクセル形式で作成します。<br/>現時点では大洗の潮見表のみ作成可能です。<br/><div class="span3"><img src="./img/tide-2014.png" title="潮見表例"/></div></p>
+                    <p><a class="btn btn-info btn-lg" href="#procedure">Get Started</a></p>
+                </div>
 
-                    <div class="form-group">
-                        <div class="col-sm-7">
-                            <button type="submit" class="btn btn-primary">潮見表を作成</button>
-                            <!--<input type="button" class="btn btn-default" value="再描画する" onclick="location.reload();" />-->
-                        </div>
-                    </div>
-                </form>
+                <section id = "procedure">
+                    <form class="form-horizontal" role="form" id="inputForm" action="./php/Tide.php" method="POST" onsubmit="return chk1(this)">
+                        <fieldset>
+                            <legend><small>Step1</small>取得する期間を選択</legend>
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <div class="col-lg-4 col-lg-offset-4">
+                                        <input name="StartMonth"  id="StartMonth" type = "text" >
+                                    </div>
+                                </div>
+                            </div>
+                            <legend><small>Step2</small>何ヶ月分取得するかを選択</legend>
+                            <div class="form-group">
+                                <div class="col-lg-2 col-lg-offset-5">
+                                    <select class="form-control" id="EndMonth" name="EndMonth">
+                                        <option>1</option>
+                                        <!--
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
+                                        -->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-2 col-lg-offset-5">
+                                    <button type="submit" class="btn btn-primary">潮見表を作成</button>
+                                    <!--<input type="button" class="btn btn-default" value="再描画する" onclick="location.reload();" />-->
+                                </div>
+                            </div>
 
-            </div><!-- /.starter-template -->
+                        </fieldset>
+                    </form>
+
+                    <div class="alert alert-dismissable alert-warning">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <h4>注意!</h4>
+                        <p>作成ボタンを一度押したら作成が開始します。<br/>時間がかかりますが、このページを閉じずに暫くお待ちください!</p>
+                    </div>
+                </section>
+                </div><!-- /.starter-template -->
 
 
         </div><!-- /.container -->

@@ -71,10 +71,11 @@
                             </div>
                             <legend><small>Step2:</small>取得する期間を選択</legend>
                             <div class="form-group">
-                                <div class="form-group">
-                                    <div class="col-lg-4 col-lg-offset-4">
-                                        <input name="StartMonth"  id="StartMonth" type = "text" class="span2" readonly>
-                                    </div>
+                                <div class="input-group date StartMonth col-lg-4 col-lg-offset-4">
+                                    <input name="StartMonth" size="16" class="form-control" type="text" readonly>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
                                 </div>
                             </div>
                             <legend><small>Step3:</small>何ヶ月分取得するかを選択</legend>
@@ -128,7 +129,7 @@
         <script src="./js/bootstrap-datepicker.js"></script>
         <!-- date picker-->
         <script >
-        $('#StartMonth').datepicker({
+        $('.StartMonth').datepicker({
             format: "yyyy/mm",
             startView: 1,
             minViewMode: 1,

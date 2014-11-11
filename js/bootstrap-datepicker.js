@@ -63,7 +63,7 @@
 				this.push.apply(this, new_array);
 			},
 			clear: function(){
-				this.length = 0;
+				this.splice(0);
 			},
 			copy: function(){
 				var a = new DateArray();
@@ -1416,16 +1416,25 @@
 		'weekStart'
 	];
 	$.fn.datepicker.Constructor = Datepicker;
-	var dates = $.fn.datepicker.dates = {
-		ja: {
-            days: ["日", "月", "火", "水", "木", "金", "土", "日"],
-			daysShort: ["日", "月", "火", "水", "木", "金", "土", "日"],
-			daysMin: ["日", "月", "火", "水", "木", "金", "土", "日"],
-			months: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
-			monthsShort: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
-			today: "今日",
-			clear: "戻る"
-		}
+    var dates = $.fn.datepicker.dates = {
+        en: {
+            days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            daysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
+            months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            today: "Today",
+            clear: "Clear"
+        },
+        ja: {
+            days: ["日曜", "月曜", "火曜", "水曜", "木曜", "金曜", "土曜", "日曜"],
+            daysShort: ["日", "月", "火", "水", "木", "金", "土", "日"],
+            daysMin: ["日", "月", "火", "水", "木", "金", "土", "日"],
+            months: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+            monthsShort: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+            today: "今日",
+            format: "yyyy/mm/dd"
+        }
 	};
 
 	var DPGlobal = {

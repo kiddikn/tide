@@ -209,9 +209,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // sheet変更の切れ目
             // sheetをactiveにして日、曜日、潮、満潮、干潮までは記述する
             //シート設定
+            $book->createSheet($i);
             $book->setActiveSheetIndex($i);
             $sheet = $book->getActiveSheet();
-            $sheet->setTitle($ykey."-".$mkey);    //シート名指定
+            $sheet->setTitle($ykey."-".$mkey);
+            //$book->setActiveSheetIndex($i);
+            //$sheet = $book->getActiveSheet();
+            //$sheet->setTitle($ykey."-".$mkey);    //シート名指定
 
             // 〜年　潮見表
             $sheet->mergeCells('A1:G4');

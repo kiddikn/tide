@@ -60,7 +60,16 @@
                 <section id = "procedure">
                     <form class="form-horizontal" role="form" id="inputForm" action="./php/Tide.php" method="POST" onsubmit="return chk1(this)">
                         <fieldset>
-                            <legend><small>1.</small>取得する期間を選択</legend>
+                            <legend><small>Step1:</small>取得する場所を選択</legend>
+                            <div class="form-group">
+                                <div class="col-lg-2 col-lg-offset-5">
+                                    <select class="form-control" id="Portid" name="Portid">
+                                        <option value="67">大洗</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <legend><small>Step2:</small>取得する期間を選択</legend>
                             <div class="form-group">
                                 <div class="form-group">
                                     <div class="col-lg-4 col-lg-offset-4">
@@ -68,7 +77,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <legend><small>2.</small>何ヶ月分取得するかを選択</legend>
+                            <legend><small>Step3:</small>何ヶ月分取得するかを選択</legend>
                             <div class="form-group">
                                 <div class="col-lg-2 col-lg-offset-5">
                                     <select class="form-control" id="EndMonth" name="EndMonth">

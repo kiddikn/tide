@@ -12,10 +12,12 @@ class Form2date {
     public $startYear;
     public $startMonth;
     public $monLength;
+    public $portid;
 
     public function Form2date() {
        $this->startYear = date("Y");
        $this->startMonth = date("m");
+       $this->portid = "67";
     }
 
     public function makeDate() {
@@ -23,15 +25,21 @@ class Form2date {
        $this->startYear = $start[0];
        $this->startMonth = $start[1];
        $this->monLength = $_POST['EndMonth'];
+       $this->portid = $_POST['Portid'];
     }
 
     public function exportDate() {
         $date = array(
+            "portid" => $this->portid,
             "monthLength" => $this->monLength,
             "syear" => $this->startYear,
             "smonth" => $this->startMonth,
         );
         return $date;
+    }
+
+    public function getPortid() {
+        return $this->portid;
     }
 
 }
@@ -65,7 +73,7 @@ class Date2xml {
         $this->url = $url_;
     }
 
-    public function setDate($inputDate) {
+    public function setDate($inputDate = array()) {
         $this->date = $inputDate;
     }
 
@@ -78,6 +86,7 @@ class Date2xml {
         $selectYear  = intval($this->date['syear']);
         $selectMonth = intval($this->date['smonth']);
         $forLength = intval($this->date['monthLength']);
+        $portid = $this->date['portid'];
 
         // 初期配列の生成
         $this->xml = array();
@@ -113,7 +122,7 @@ class Date2xml {
 //                echo $j."<br/>";      // for debug
                 // portid=67&year=2009&month=12&day=01
                 $thisURL = $this->url;
-                $thisURL = $thisURL . 'portid=67&year=' . $thisYear .'&month=' . $thisMonth . '&day=' . $j;
+                $thisURL = $thisURL . 'portid=' . $portid . '&year=' . $thisYear .'&month=' . $thisMonth . '&day=' . $j;
 //                echo $thisURL."<br />";     //for debug
                 $this->xml["$thisYear"]["$thisMonth"] += array("$j" => $this->addXML($thisURL));
             }
@@ -147,7 +156,7 @@ class Date2xml {
 
 }
 
-
+// ==============================================================================================================================
 // 実行
 // 選択された月のデータを得て、excelに出力
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -185,6 +194,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "小潮" => "CAE1FF",
         "若潮" => "1C86EE",
         "長潮" => "1C86EE"
+    );
+
+    $portname = array(
+        "67" => "oarai"
     );
 
     // エクセルファイルを開く
@@ -257,7 +270,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         // 始めの位置が満潮か干潮かによってexcelでの表示位置をstring化
                         $highString = $high["$highCount"].$day_count;
 //                        echo $highString;         // for debug
-                        $sheet->setCellValue("$highString",$val->{'tide-time'}."(".$val->{'tide-level'}."cm)");
+                        $sheet->setCellValue("$highString",$val->{'tide-time'}."(".$val->{'tide-level'}.")");
                     }
                     $highCount++;
                 }
@@ -284,9 +297,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sheet->getStyle( "A1:G$day_count")->getFont()->setBold(true);
         }
     }
+
+    $fname = $portname[$form2date->getPortid()];
+    $filename = "tide_" . $fname . ".xlsx";
     // Excel2007形式で出力する
     header('Content-Type: application/vnd.ms-excel');
-    header('Content-Disposition: attachment;filename="tide.xlsx"');
+    header("Content-Disposition: attachment;filename='$filename'");
     header('Cache-Control: max-age=0');
 
     $writer = PHPExcel_IOFactory::createWriter($book, "Excel2007");

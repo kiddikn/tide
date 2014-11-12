@@ -42,7 +42,7 @@
             <div class="navbar-collapse collapse navbar-responsive-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
-                    <li><a href="http://kiddikn.php.xdomain.jp/kiddikn/" target="_blank">About</a></li>
+                    <li><a href="http://kiddikn.php.xdomain.jp/kiddikn/" target="_blank">Blog</a></li>
                 </ul>
             </div>
         </div>
@@ -115,8 +115,28 @@
                         <p>作成ボタンを一度押したら作成が開始します。<br/>時間がかかりますが、このページを閉じずに暫くお待ちください!</p>
                     </div>
                 </section>
-                </div><!-- /.starter-template -->
+            </div><!-- /.starter-template -->
 
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <ul class="sns-icon list-inline">
+                            <li class="pull-right"><a href="#top">↑PAGE TOP</a></li>
+                            <li><a href="https://twitter.com/share" class="twitter-share-button" data-text="潮見表を自動でエクセルファイルで作成！" data-via="kiddikn" data-lang="ja">ツイート</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></li>
+<!-- +1 ボタン を表示したい位置に次のタグを貼り付けてください。 -->
+                            <li><div class="fb-like" data-href="http://kiddikn.php.xdomain.jp/tide/tide-graph.html" data-width="350" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div></li>
+                            <li><div class="g-plusone"></div></li>
+                            <li><a href="http://b.hatena.ne.jp/entry/http://kiddikn.php.xdomain.jp/tide/tide-graph.html" class="hatena-bookmark-button" data-hatena-bookmark-title="潮見表自動作成" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script></li>
+                            <li><a href="https://github.com/kiddikn/tide"><img src="./img/GitHub-Mark-32px.png"></img></a></li>
+                        </ul>
+                        <p>© 2014 kiddikn</p>
+
+                    </div>
+                </div>
+
+            </footer>
 
         </div><!-- /.container -->
 
@@ -127,6 +147,20 @@
         <script src="./js/jquery.min.js"></script>
         <script src="./js/bootstrap.min.js"></script>
         <script src="./js/bootstrap-datepicker.js"></script>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/ja_KS/sdk.js#xfbml=1&version=v2.0";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <!-- head 内か、body 終了タグの直前に次のタグを貼り付けてください。 -->
+        <script src="https://apis.google.com/js/platform.js" async defer>
+          {lang: 'ja'}
+        </script>
+
         <!-- date picker-->
         <script >
         $('.StartMonth').datepicker({

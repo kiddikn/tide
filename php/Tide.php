@@ -15,6 +15,8 @@ class Form2date {
     public $portid;
 
     public function Form2date() {
+
+       // defaultの値を設定
        $this->startYear = date("Y");
        $this->startMonth = date("m");
        $this->portid = "67";
@@ -311,11 +313,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $writer = PHPExcel_IOFactory::createWriter($book, "Excel2007");
     $writer->save('php://output');
-
-
-    echo "0";
-
-
 
 
 } else {
